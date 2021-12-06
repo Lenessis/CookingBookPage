@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] PrzepisyWeb </title>
+    <title>@ViewData["Title"] CookingBook </title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
     <link rel="icon" href="~/my_img/favicon-16x16.png">
@@ -13,33 +13,29 @@
 </head>
 <body>
 
+    <header>
+        <img src="~/my_img/chef-1417239_1280.png" alt="kucharze - header" />
+    </header>
     <div id="wrapper">
-        <header>
-            <img src="~/my_img/chef-1417239_1280.png" alt="kucharze - header" />
-        </header>
         <nav>
             <a class="menu" asp-area="" asp-page="/Index">Strona głowna</a>
-            <!--a class="menu" asp-area="" asp-page="/Categories/Index">Kategorie</a-->
             <a class="menu" asp-area="" asp-page="/Recipies">Przepisy</a>
-            <a class="menu" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Moje Konto </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="menu" id="manage" style="color: black"  asp-area="Identity" asp-page="/Account/Manage/Index">Mój profil</a>
-                            <a class="menu" style="color: black" asp-area="" asp-page="/Recipes/Favourite">Ulubione</a>
-                            <a class="menu" style="color: black" asp-area="" asp-page="/Recipes/MyRecipes">Moje przepisy</a>
-                        </div>
+
 
             <partial name="_LoginPartial.cshtml" />
+
         </nav>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
 
-    <footer>
-        &copy; 2021 - PrzepisyWeb - <a asp-area="" asp-page="/Privacy">Privacy</a>   
-    </footer>
+        <footer>
+            &copy; 2021 - CookingBook - <a asp-area="" asp-page="/Privacy">Privacy</a>   
+        </footer>
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

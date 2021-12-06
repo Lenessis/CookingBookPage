@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +20,7 @@ namespace PrzepisyWeb.Pages.Recipes
             _context = context;
         }
 
-        public IList<Recipe> Recipe { get;set; }
+        public IList<Recipe> Recipe { get; set; }
 
         public async Task OnGetAsync()
         {

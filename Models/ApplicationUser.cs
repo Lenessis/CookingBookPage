@@ -14,7 +14,7 @@ namespace PrzepisyWeb.Models
     {
         //składowa public już jest dziedziczona
 
-        public ICollection<Recipe> Recipes { get; set; }                     
+        public ICollection<Recipe> Recipes { get; set; }
 
         public ICollection<FavouriteRecipe> favouriteRecipes { get; set; }
 

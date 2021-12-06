@@ -9,16 +9,17 @@ namespace PrzepisyWeb.Models
 {
     public class LikeDislikeModel
     {
-        
+        public int LikeDislikeModelId { get; set; }
+/*
         public string LikeID { get; set; }
 
         private bool BoolBoxDislike = false;
 
         private bool BoolBoxLike = false;
-     
+
         [Required]
         public int RecipeID { get; set; }
-        
+
         [Required]
         public string UserID { get; set; }
 
@@ -33,14 +34,14 @@ namespace PrzepisyWeb.Models
         public bool Dislike { get { return BoolBoxDislike; } set { BoolBoxDislike = value; } }
 
 
-        public LikeDislikeModel(int recipeID, string userID) 
+        public LikeDislikeModel(int recipeID, string userID)
         {
             UserID = userID;
-            RecipeID = recipeID;      
+            RecipeID = recipeID;
 
         }
 
-        public LikeDislikeModel() { }
+        public LikeDislikeModel() { }*/
 
     }
 }

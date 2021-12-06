@@ -24,7 +24,7 @@ namespace PrzepisyWeb.Pages
         public IList<Recipe> SearchList { get; set; }
 
 
-        public IActionResult OnGet()
+       /* public IActionResult OnGet()
         {
             var GetFullList = (from X in _context.Recipes orderby X.LikeCounter descending select X).Take(10);
 
@@ -32,6 +32,6 @@ namespace PrzepisyWeb.Pages
             SearchList = GetFullList.ToList();
 
             return Page();
-        }
+        }*/
     }
 }

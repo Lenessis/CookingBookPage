@@ -11,9 +11,9 @@ namespace PrzepisyWeb.Models
         [Key]
         public int CategoryID { get; set; }
 
-        public string CategoryName { get; set; }
+        /*public string CategoryName { get; set; }
 
-        public ICollection<RecipeCategory> RecipeCategories { get; set; }
+        public ICollection<RecipeCategory> RecipeCategories { get; set; }*/
 
     }
 }

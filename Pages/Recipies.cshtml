@@ -30,9 +30,6 @@
                 Nazwa przepisu
             </th>
             <th>
-                Zdjęcia
-            </th>
-            <th>
                 Składniki
             </th>
             <th>
@@ -44,10 +41,7 @@
             <th>
                 Nazwa użytkownika
             </th>
-            <th>
-                Liczba polubień
-            </th>
-            <th></th>
+            
         </tr>
     </thead>
     <tbody>
@@ -56,9 +50,6 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Image)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Ingredients)
@@ -72,30 +63,11 @@
                 <td>
                     <a asp-page="/Recipes/UserPage" asp-route-UserName="@item.OwnerUserName">@Html.DisplayFor(modelItem => item.OwnerUserName)</a>
                 </td>
-                <td>
-                    <b>@Html.DisplayFor(modelItem => item.LikeCounter)</b>
-                </td>
-                <td>
-                    <form method="post">
-                        <input type="hidden" name="UserName" asp-for="@item.OwnerUserName" />
-                        <input type="hidden" name="Like" asp-for="@item.RecipeID" />
-                        <br /><input type="submit" name="Like" value="Lubię" class="btn btn-success" style="margin: 0 0 5px 0" />
-
-                        <input type="hidden" name="Like" asp-for="@item.RecipeID" />
-                        <br /><input type="submit" name="Dislike" value="Nie lubię" class="btn btn-danger" style="margin: 0 0 5px 0" />
-                    </form>
-
-                    <a asp-page="/Categories/AddCategory" asp-route-id="@item.RecipeID" class="btn btn-light" style="margin: 0 0 5px 0">Dodaj kategorie</a>
-                    <br /><a asp-page="/Recipes/AddFavourite" asp-route-id="@item.RecipeID" class="btn btn-light">Dodaj do ulubionych</a>
-
-                </td>
+                
             </tr>
         }
     </tbody>
 </table>
-
-
-
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

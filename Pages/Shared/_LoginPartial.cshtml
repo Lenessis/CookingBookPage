@@ -8,17 +8,17 @@
 <nav>
     @if (SignInManager.IsSignedIn(User))
     {
-     
-      <a class="menu" id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-        <a>
-            <form id="logoutForm" class="form" asp-page="/Identity/Pages/Account/Logout" asp-route-returnUrl="@Url.Page("/Layout", new { area = "" })">
-               <button id="logout" type="submit" class="nav-link btn btn-outline-light" style="height: 59px">Wyloguj się</button>
-            </form>
-        </a>
+        <a class="menu" asp-page="/Recipes/MyRecipes" >Moje przepisy</a>
+        <a class="menu" asp-area="Identity" asp-page="/Account/Manage/PersonalData" title="Manage">Cześć, @UserManager.GetUserName(User)!</a>
+        @*<a>*@
+        <form id="logoutForm" class="form" asp-page="/Identity/Pages/Account/Logout" asp-route-returnUrl="@Url.Page("/Layout", new { area = "" })">
+            <button id="logout" type="submit" class="nav-link menu ">Wyloguj się</button>
+        </form>
+        @*</a>*@
     }
- else
-{
-     
-         <a class="menu" id="login" asp-page="/Identity/Pages/Account/Login">Zaloguj się</a>
-}
+    else
+    {
+
+        <a class="menu" id="login" asp-page="/Identity/Pages/Account/Login">Zaloguj się</a>
+    }
 </nav>

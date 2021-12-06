@@ -34,34 +34,6 @@ namespace PrzepisyWeb.Services
                     });
             }
         }
-        /*
-        public void AddRating(string recipeId, int rating)
-        {
-            var recipes = GetRecipes();
-
-            if (recipes.First(x => x.RecipeID == recipeId).Ratings == null)
-            {
-                recipes.First(x => x.RecipeID == recipeId).Ratings = new int[] { rating };
-            }
-            else
-            {
-                var ratings = recipes.First(x => x.RecipeID == recipeId).Ratings.ToList();
-                ratings.Add(rating);
-                recipes.First(x => x.RecipeID == recipeId).Ratings = ratings.ToArray();
-            }
-
-            using (var outputStream = File.OpenWrite(JsonFileName))
-            {
-                JsonSerializer.Serialize<IEnumerable<Recipe>>(
-                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
-                    {
-                        SkipValidation = true,
-                        Indented = true
-                    }),
-                    recipes
-                );
-            }
-        }
-        */
+       
     }
 }

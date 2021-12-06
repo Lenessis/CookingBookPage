@@ -9,7 +9,8 @@ namespace PrzepisyWeb.Models
 {
     public class FavouriteRecipe
     {
-        [Required]
+        public int FavouriteRecipeID { get; set; }
+       /* [Required]
         public int RecipeID { get; set; }
         public Recipe Recipe { get; set; }
 
@@ -25,6 +26,6 @@ namespace PrzepisyWeb.Models
 
         }
 
-        public FavouriteRecipe() { }
+        public FavouriteRecipe() { }*/
     }
 }

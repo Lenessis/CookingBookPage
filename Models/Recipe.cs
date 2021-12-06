@@ -26,41 +26,21 @@ namespace PrzepisyWeb.Models
         public string Description { get; set; }
         public DateTime Date { get; set; }
 
-        //public ICollection<int> Ratings { get; set; }
-
-
-        public ICollection<RecipeCategory> RecipeCategories { get; set; }
-
         //Owner
         public ApplicationUser Owner { get; set; }
 
         public string OwnerUserName { get; set; }
 
-        //Użytkownik ulubione
-       // public ApplicationUser FavUser { get; set; }
-
-        //Ulubione
-        //dobre podejście
-        public ICollection<FavouriteRecipe> favouriteRecipes { get; set; }
-        
-        //polubienia
-
-        public ICollection<LikeDislikeModel> LikeDislikeList { get; set; }
-
-
-        private int LikeCounterParam = 0;
-
-        public int LikeCounter { get { return LikeCounterParam; } set { LikeCounterParam = value; } }
 
         // polubienia i listy użytkowników którzy polublili
-       /* public int LikeCounter { get; set; }
-        
+        public int LikeCounter { get; set; }
+
         [NotMapped]
         public ICollection<ApplicationUser> LikeUsers { get; set; }
 
         [NotMapped]
         public ICollection<ApplicationUser> DislikeUsers { get; set; }
- */
+
         //Constructors
 
         public Recipe(string name, DateTime date, string description, string ingredients)

@@ -18,9 +18,7 @@
             <th>
                 Nazwa przepisu
             </th>
-            <th>
-                Zdjęcia
-            </th>
+
             <th>
                 Składniki
             </th>
@@ -30,12 +28,7 @@
             <th>
                 Data dodania
             </th>
-            <th>
-                Liczba polubień
-            </th>
-            <th>
-                Kategorie
-            </th>
+
             <th></th>
         </tr>
     </thead>
@@ -45,9 +38,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Ingredients)
             </td>
@@ -57,17 +48,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
-            <td>
-                <b>@Html.DisplayFor(modelItem => item.LikeCounter)</b>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecipeCategories)
-            </td>
+
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.RecipeID" class="btn btn-light" style="margin: 0 0 5px 0">Edytuj</a>
                 <br /><a asp-page="./Details" asp-route-id="@item.RecipeID" class="btn btn-light" style="margin: 0 0 5px 0">Szczegóły</a>
                 <br /><a asp-page="./Delete" asp-route-id="@item.RecipeID" class="btn btn-light" style="margin: 0 0 5px 0">Usuń</a>
-                <br /><a asp-page="/Categories/AddCategory" asp-route-id="@item.RecipeID" class="btn btn-light">Dodaj kategorie</a>
             </td>
         </tr>
 }

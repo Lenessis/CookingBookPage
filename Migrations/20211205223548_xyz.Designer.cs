@@ -10,8 +10,8 @@ using PrzepisyWeb.Data;
 namespace PrzepisyWeb.Migrations
 {
     [DbContext(typeof(RecipeContext))]
-    [Migration("20210612094752_Migracja_test")]
-    partial class Migracja_test
+    [Migration("20211205223548_xyz")]
+    partial class xyz
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -223,54 +223,46 @@ namespace PrzepisyWeb.Migrations
 
             modelBuilder.Entity("PrzepisyWeb.Models.Category", b =>
                 {
-                    b.Property<int>("categoryID")
+                    b.Property<int>("CategoryID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("categoryName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("categoryID");
+                    b.HasKey("CategoryID");
 
                     b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("PrzepisyWeb.Models.FavouriteRecipe", b =>
                 {
-                    b.Property<int>("RecipeID")
-                        .HasColumnType("int");
+                    b.Property<int>("FavouriteRecipeID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("UserID")
+                    b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("RecipeID", "UserID");
+                    b.HasKey("FavouriteRecipeID");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("FavouriteRecipes");
                 });
 
             modelBuilder.Entity("PrzepisyWeb.Models.LikeDislikeModel", b =>
                 {
-                    b.Property<int>("RecipeID")
-                        .HasColumnType("int");
+                    b.Property<int>("LikeDislikeModelId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("UserID")
+                    b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<bool>("Dislike")
-                        .HasColumnType("bit");
+                    b.HasKey("LikeDislikeModelId");
 
-                    b.Property<bool>("Like")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("LikeID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("RecipeID", "UserID");
-
-                    b.HasIndex("UserID");
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("LikeDislikeList");
                 });
@@ -303,6 +295,9 @@ namespace PrzepisyWeb.Migrations
                     b.Property<string>("OwnerId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("OwnerUserName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("RecipeID");
 
                     b.HasIndex("OwnerId");
@@ -312,15 +307,12 @@ namespace PrzepisyWeb.Migrations
 
             modelBuilder.Entity("PrzepisyWeb.Models.RecipeCategory", b =>
                 {
-                    b.Property<int>("recipeID")
-                        .HasColumnType("int");
+                    b.Property<int>("RecipeCategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategoryID")
-                        .HasColumnType("int");
-
-                    b.HasKey("recipeID", "CategoryID");
-
-                    b.HasIndex("CategoryID");
+                    b.HasKey("RecipeCategoryId");
 
                     b.ToTable("RecipeCategories");
                 });
@@ -378,32 +370,16 @@ namespace PrzepisyWeb.Migrations
 
             modelBuilder.Entity("PrzepisyWeb.Models.FavouriteRecipe", b =>
                 {
-                    b.HasOne("PrzepisyWeb.Models.Recipe", "Recipe")
+                    b.HasOne("PrzepisyWeb.Models.ApplicationUser", null)
                         .WithMany("favouriteRecipes")
-                        .HasForeignKey("RecipeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PrzepisyWeb.Models.ApplicationUser", "User")
-                        .WithMany("favouriteRecipes")
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("PrzepisyWeb.Models.LikeDislikeModel", b =>
                 {
-                    b.HasOne("PrzepisyWeb.Models.Recipe", "Recipe")
+                    b.HasOne("PrzepisyWeb.Models.ApplicationUser", null)
                         .WithMany("LikeDislikeList")
-                        .HasForeignKey("RecipeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PrzepisyWeb.Models.ApplicationUser", "User")
-                        .WithMany("LikeDislikeList")
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("PrzepisyWeb.Models.Recipe", b =>
@@ -411,21 +387,6 @@ namespace PrzepisyWeb.Migrations
                     b.HasOne("PrzepisyWeb.Models.ApplicationUser", "Owner")
                         .WithMany("Recipes")
                         .HasForeignKey("OwnerId");
-                });
-
-            modelBuilder.Entity("PrzepisyWeb.Models.RecipeCategory", b =>
-                {
-                    b.HasOne("PrzepisyWeb.Models.Category", "category")
-                        .WithMany("RecipeCategories")
-                        .HasForeignKey("CategoryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PrzepisyWeb.Models.Recipe", "recipe")
-                        .WithMany("RecipeCategories")
-                        .HasForeignKey("recipeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
